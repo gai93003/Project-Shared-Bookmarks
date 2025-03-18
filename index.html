@@ -1,8 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="script.js"></script>
+    <title>Shared Bookmarks</title>
+    <style>
+      main{
+        padding: 2rem;
+      }
+
+      section {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin: 0.5rem;
+      }
+      button {
+        margin-top: 0.5rem;
+        width: 35%;
+      }
+    </style>
   </head>
   <body>
+    <main>
+      <label for="select-users">Please a user
+        <select name="" id="select-users">
+          <option disabled selected>Select User</option>
+        </select>
+      </label>
+      
+      <section id="bookmark-details">
+        <label for="input-el">Enter url
+          <input type="text" id="input-el" placeholder="Enter url" required>
+        </label>
+
+        <label for="title">Enter title
+          <input type="text" id="title" placeholder="Enter title" required>
+        </label>
+
+        <label for="description">Enter description
+          <input type="text" id="description" placeholder="Enter description" required>
+        </label>
+        
+        <button id="submit-btn">Submit</button>
+      </section>
+      <section id="inform-user"></section>
+      <section id="display-bookmarks"></section>
+    </main>
   </body>
 </html>
