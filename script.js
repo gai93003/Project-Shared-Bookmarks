@@ -45,11 +45,30 @@ const displayBookmarks = () => {
 
   bookmarks.forEach((bookmark) => {
     const bookmarkElement = document.createElement("div");
-    bookmarkElement.innerHTML = `
-      <h2><a href="${bookmark.url}" target="_blank">${bookmark.title}</a></h2>
-      <p><strong>Description:</strong> ${bookmark.description || "No description provided"}</p>
-      <p><strong>Created At:</strong> ${bookmark.createdAt ? new Date(bookmark.createdAt).toLocaleString() : "Unknown"}</p>
-    `;
+
+    const title = document.createElement('h2');
+    
+
+    const link = document.createElement('a');
+    link.href = bookmark.url;
+    link.textContent = bookmark.title;
+
+    const description = document.createElement('p');
+    description.textContent = bookmark.title || "No description provided.";
+
+    const timestamp = document.createElement('h2');
+    const str = document.createElement('strong');
+    const span = document.createElement('span');
+    str.textContent = 'Created At:'
+    span.textContent = bookmark.createdAt ? new Date(bookmark.createdAt).toLocaleString() : 'Unknown';
+
+    title.appendChild(link);
+    timestamp.appendChild(str);
+    timestamp.appendChild(span);
+
+    bookmarkElement.appendChild(title);
+    bookmarkElement.appendChild(description);
+    bookmarkElement.appendChild(timestamp);
     displayUsers.appendChild(bookmarkElement);
   });
 };
